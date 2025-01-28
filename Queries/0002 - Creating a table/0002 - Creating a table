@@ -1,0 +1,22 @@
+CREATE DATABASE school;
+
+USE school;
+
+CREATE TABLE course(           -- Creating table 
+cid INT,                       -- course id is taking int value
+cname varchar(50)              -- course name is taking character value 
+);
+
+INSERT INTO course(cid, cname)   -- Inserting data into table
+VALUES(1,"phy"),                 
+(2,"maths");
+
+SELECT cid FROM course;          -- To see specific value from the table
+
+SELECT * FROM course;            -- To see all the data present in table
+
+Show TABLES;                     -- To see all the tables present in DB.
+
+
+
+
