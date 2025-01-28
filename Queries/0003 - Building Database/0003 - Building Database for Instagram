@@ -1,0 +1,34 @@
+CREATE DATABASE IF NOT EXISTS InstagramDB;         -- Step 1 - Create a DB
+
+USE InstagramDB;                                   -- STEP 2 -  Use the DB
+
+CREATE TABLE IF NOT EXISTS users(                  -- STEP 3 - Creating a table 
+userId INT primary Key,                            -- Here userId, userName, email are column names 
+userName varchar(50),                              -- INT, VARCHAR are Datatypes
+email varchar(100)                                 -- primary key is constraint
+);
+
+CREATE TABLE IF NOT EXISTS posts (                 -- Creating One more table in the DB
+postId INT PRIMARY KEY,
+userId INT,
+caption VARCHAR(100)
+);
+
+INSERT INTO users (userId, userName, email)      -- STEP 4 - Inserting data into the users table By proving its column names 
+VALUE
+(1, "riti", "abc@gmail.com"),                     -- according to column names the values will be INSERTED in the TABLE	
+(2, "raj", "xyz@gmail.com"),
+(3, "rahul", "abc2@gmail.com");
+
+
+INSERT INTO posts (postId, userId, caption)       -- Inserting Values in the Posts table
+VALUES
+(101, 561, "light"),
+(102, 562, "air"),
+(103, 563, "water");
+
+Show Tables;                                      -- STEP 5 - To see all the tables Present in the table
+
+SELECT * FROM users;                              -- STEP 6 -  All the values in a specific table
+
+SELECT * FROM POSTS;
