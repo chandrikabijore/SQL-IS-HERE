@@ -1,0 +1,19 @@
+-- Cascading in Foreign Key
+-- 1. ON DELETE CASCADE => It will make sure that any of the data which is deleted in parent table will be deleted in the child table as well.                  
+
+CREATE TABLE childtableName (
+childId INT PRIMARY KEY,
+baseId INT,
+FOREIGN KEY (baseId) REFERENCES baseTableName(baseId)
+ON DELETE CASCADE                           
+);
+
+
+-- 2. ON UPDATE CASCADE => It will make sure that any of the value which is updation in parent table the same will be updated in the child table as well.
+
+CREATE TABLE childtableName (
+childId INT PRIMARY KEY,
+baseId INT,
+FOREIGN KEY (baseId) REFERENCES parenttableName(childId)
+ON UPDATE CASCADE
+);
