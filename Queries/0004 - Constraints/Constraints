@@ -1,0 +1,75 @@
+create Database College;
+
+USE College;
+
+-- Unique Constraints = Ensures values in a cloumn are unique across the table.
+
+CREATE TABLE student(
+phonenbr INT UNIQUE
+);
+
+INSERT INTO student(phonenbr)       -- Here if phonenbr are same then it'll give an error bcoz of UNIQUE constraint
+VALUES
+(123),
+(124),
+(125);
+
+
+-- not null constraints = Ensures a column cannot have a null value.
+
+create table student1(
+age INT ,
+rollno INT NOT NULL     -- yha rollno in value null nhi reh skti
+);
+
+INSERT INTO student1(age,rollno)
+VALUES (27, 1); 
+
+
+-- Check Constraints =  Enforces a condition to be true for each row.
+
+CREATE TABLE student3(
+age INT CHECK(age > 18)      -- Here Check Constraibt will check ki condition shi h ya ni
+);
+
+INSERT INTO student3(age)    -- Yha 18 se choti value dete to error
+VALUES(21);
+
+
+-- default Constraints = Provides a default value for a column if no value is specified.
+
+CREATE TABLE student5(
+schoolName VARCHAR(50) DEFAULT 'XYZ',       -- If schoolName nhi diya h to vha default name aa jayga jese 'XYZ'
+age INT
+);
+
+INSERT INTO student5(age)                  -- yha sirf age ki value di h school ki nhi to vha default value aa jayga automatically
+VALUES(19);
+
+select * from student5;                     -- To see all the data present in student5
+
+-- primary Key constraints = Enforces the uniqueness of values in one or more columns
+
+CREATE TABLE student6(
+age INT,
+rollNo INT PRIMARY KEY                     -- Here rollNo should be unique or Not null bcoz of PRIMARY KEY CONSTRAINTS
+);
+
+INSERT INTO student6(age, rollNo)          -- (UNIQUE) Inserted value inside table should be Unique otherwise it'll give us the error
+VALUES
+(12,1),
+(13,2),
+(14,3);
+
+INSERT INTO student6(agr)                 -- (NOT NULL) Yha sirf age ki value di h rollNo ki ni to vo null rhega to error occur hoga
+VALUES
+(18);
+
+
+-- foreign key constraints
+
+CREATE TABLE course(
+courseName VARCHAR(50),
+rollno INT,
+FOREIGN KEY (rollno) REFERENCES student6(rollno)
+); 
