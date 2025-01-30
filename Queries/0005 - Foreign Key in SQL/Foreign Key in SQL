@@ -1,0 +1,14 @@
+CREATE DATABASE Class;        -- Foreign Key in SQL
+
+Use Class;
+
+CREATE TABLE student(         -- Referenced Table
+id INT PRIMARY KEY,
+name VARCHAR(50)
+);
+
+CREATE TABLE course(          -- Referencing Table
+cid INT PRIMARY KEY,
+id INT,
+FOREIGN KEY(id) REFERENCES student(id)
+);
